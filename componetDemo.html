@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- <h1>{{article.title}}</h1>
+        <h2>作者：{{article.author}}</h2>
+        <h3>{{article.publishDate}}</h3>
+        <p> 
+            <img :src="article.imgSrc" style="width:100px;height:50px"/>
+            {{article.content}}
+        </p> -->
+        <!-- heart是组建的一个属性，那么组件必须通过props声明这个属性 -->
+        <gll v-for="artitle in artitleList" :key="artitle.title" :heart="artitle"></gll>
+   
+        
+    </div>
+    <script>
+       // 定义gll这个自定义组件
+       //第一个参数是自定义组件的标签名称，第二个参数是定义该组件的运行规则对象
+       Vue.component('gll',{
+           props:['heart'],
+           //template中定义的是组件中的模板，也就是html和{{}}以及vue指令的组合
+           //template必须要有根标签 例如<h1><h2>不合法，<div><h1></h1><h2></h2></div>
+           template:'<div>'+
+           '<h1 style="color:red">{{heart.title}}</h1>'+
+           '<h2>作者：{{heart.author}}</h2>'+
+           '<h3>时间：{{heart.publishDate}}</h3>'+
+           '<p>{{heart.content}}</p>'+
+           '</div>'
+       });
+
+        var app = new Vue({
+            el:"#app",
+            data:{
+                artitleList:[
+              {  title:"论乔碧罗是否合我心意",
+                   author:"郭乐乐",
+                   publishDate:"2019-12-13",
+                   content:"根据我多年的开车经验，乔小姐非常漂亮，并且合我心意。",
+                    imgSrc:"https://p0.ssl.qhimgs4.com/t0195d3e9c06da08ce0.jpg"
+              },
+              {
+                   title:"论童养媳的养成",
+                   author:"郭乐乐",
+                   publishDate:"2019-12-13",
+                   content:"乔小姐倾国倾城，所以从小养成是必要的。",
+                    imgSrc:"https://p0.ssl.qhimgs4.com/t0195d3e9c06da08ce0.jpg"
+              },
+              {
+                   title:"论童养媳的养成",
+                   author:"郭乐乐",
+                   publishDate:"2019-12-13",
+                   content:"乔小姐倾国倾城，所以从小养成是必要的。",
+                    imgSrc:"https://p0.ssl.qhimgs4.com/t0195d3e9c06da08ce0.jpg"
+              }, {
+                   title:"论童养媳的养成",
+                   author:"郭乐乐",
+                   publishDate:"2019-12-13",
+                   content:"乔小姐倾国倾城，所以从小养成是必要的。",
+                    imgSrc:"https://p0.ssl.qhimgs4.com/t0195d3e9c06da08ce0.jpg"
+              }
+               ]
+            }
+        })
+    </script>
+    <style>
+    
+    </style>
+</body>
+</html>

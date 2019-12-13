@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+            <gll-v2>
+                <template v-slot:title>
+                    {{artitle.title}}
+                </template>
+                <template v-slot:author>
+                        {{artitle.author}}
+                    </template>
+                    <template v-slot:date>
+                            {{artitle.publishDate}}
+                        </template>
+                        {{artitle.content}}
+            </gll-v2>
+    </div>
+    <script>
+       Vue.component('gll-v2',{
+         template:'<div>'+
+            '<h1><slot name="title"></slot></h1>'+
+            '<h2><slot name="author"></slot></h2>'+
+            '<h3><slot name="publishDate"></slot></h3>'+
+            '<p><slot></slot></p>'+
+         '</div>'
+       });
+
+        var app = new Vue({
+            el:"#app",
+            data:{
+                artitle:{
+                   title:"论童养媳的养成",
+                   author:"郭乐乐",
+                   publishDate:"2019-12-13",
+                   content:"乔小姐倾国倾城，所以从小养成是必要的。"
+            }
+            }
+        })
+    </script>
+    <style>
+    
+    </style>
+</body>
+</html>

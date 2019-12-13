@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <a :href="address" :title="tips">{{name}}</a> 
+        <button v-on:click="change">点击将a标签指向新浪</button>
+    </div>
+    <script>
+    var app=new Vue({
+        el:"#app",
+        data:{
+            address:"http://www.baidu.com",
+            tips:"点击打开百度",
+            name:"百度"
+        },
+        methods:{
+            change: function(){
+                //在所有的mehtods的方法的调用者this都是指所属的vue实例对象
+                this.address="http://sina.com.cn";
+                this.tips="点击打开新浪";
+                this.name="新浪";
+
+                
+            }
+        }
+    });
+    </script>
+</body>
+</html>

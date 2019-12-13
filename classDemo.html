@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1 v-bind:class="{active:isActive,font50:isFont50}">哈哈</h1>
+        <button @click="toggleActive">切换激活状态</button>
+        <button @click="toggleFontSize">切换字体大小</button>
+        <h1 v-bind:style="{fontSize:fontSize+'px',color:fontColor}">呵呵</h1>
+        请输入呵呵的大小：<input type="number" v-model="fontSize" /></br>
+        请选择颜色：<input type="color" v-model="fontColor"/>
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+               isActive:false,
+               isFont50:false,
+               fontSize:16,
+               fontColor:'red'
+            },
+            methods:{
+                toggleActive:function(){
+                    //切换h1标签的激活状态
+                    this.isActive=!this.isActive;
+                },
+                toggleFontSize:function(){
+                    this.isFont50 = !this.isFont50;
+                }
+            }
+        })
+    </script>
+    <style>
+        .active {
+            color:red;
+            border:1px solid black;
+        }
+        .font50 {
+            font-size: 50px
+        }
+    
+    </style>
+</body>
+</html>

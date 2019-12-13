@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="number" v-model="val1"/>
+        <input type="text" v-model="cal"/>
+        <input type="number" v-model="val2"/>
+         = <span style="color:red">{{result}}</span>
+        
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                val1:0,
+                val2:0,
+                cal:'+'
+            },
+            computed:{
+                result:function(){
+                    if(this.cal=='+'){
+                        return parseInt(this.val1)+parseInt(this.val2)
+                    }else if(this.cal=='-'){
+                        return parseInt(this.val1)-parseInt(this.val2)
+                    }else if(this.cal=='*'){
+                        return parseInt(this.val1)*parseInt(this.val2)
+                    }else if(this.cal=='/'){
+                        return parseInt(this.val1)/parseInt(this.val2)
+                    }else{
+                        return"非法操作符"                    }
+                    
+                }
+            }
+        })
+    </script>
+</body>
+</html>

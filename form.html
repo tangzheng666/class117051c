@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+<form action="http://www.baidu.com" method="POST" @submit.prevent="validate">
+<div>
+    <label>用户名</label>
+    <input type="text" name="username" v-model="username"/>
+</div>
+<div>
+        <label>密码</label>
+        <input type="text" name="password"/>
+</div>
+<div>
+        <input type="submit" value="提交登陆请求"/>
+</div>
+</form>
+        <script>
+                var app=new Vue({
+                    el:"#app",
+                    data:{
+                  username:""
+                   },
+                   mehthods:{
+                       validate:function(){
+                           //对username的长度进行验证是否小于6个
+                           if(this.username.length<=6){
+                               alert("您输入的用户名不合法！");
+                                }else{
+                                    //通过发送ajax请求来访问百度
+                                   axios
+                                }
+                       }
+                   }
+                })
+                </script>
+</body>
+</html>
